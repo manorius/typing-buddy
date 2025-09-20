@@ -7,6 +7,7 @@ A Python desktop app that simulates human-like typing into any focused applicati
 - Adjustable speed (WPM)
 - Countdown timer so you can focus the target field
 - Human-like typing: variable delays, short stops, bursts, occasional longer pauses
+- Newlines are sent as soft breaks (Shift+Enter) to avoid accidental submits
 - System-wide typing using `pynput`
 - Stop/cancel at any time
 - Preview mode (types into the app locally)

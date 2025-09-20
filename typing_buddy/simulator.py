@@ -90,9 +90,16 @@ def make_system_sender(controller) -> Callable[[str], None]:
     from pynput.keyboard import Key
 
     def _send(ch: str) -> None:
-        if ch == "\n":
-            controller.press(Key.enter)
-            controller.release(Key.enter)
+        # Use soft line breaks for any newline/carriage return to avoid submitting forms
+        if ch in ("\n", "\r"):
+            try:
+                # Press Shift+Enter (soft break)
+                with controller.pressed(Key.shift):
+                    controller.press(Key.enter)
+                    controller.release(Key.enter)
+            except Exception:
+                # Fallback: just type a literal newline char if combo fails
+                controller.type("\n")
         else:
             controller.type(ch)
     return _send
