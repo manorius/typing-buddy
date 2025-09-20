@@ -39,6 +39,19 @@ Option 2: run the file
 python typing_buddy/main.py
 ```
 
+PowerShell (Windows) direct run:
+
+```powershell
+python .\typing_buddy\main.py
+```
+
+If `python -m typing_buddy` fails with `No module named typing_buddy.__main__`, you can run the module explicitly:
+
+```powershell
+python -m typing_buddy.main
+```
+
+
 If you encounter an "attempted relative import with no known parent package" error, prefer the module form above: `python -m typing_buddy`.
 
 ## How to use
