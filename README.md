@@ -39,6 +39,8 @@ Option 2: run the file
 python typing_buddy/main.py
 ```
 
+If you encounter an "attempted relative import with no known parent package" error, prefer the module form above: `python -m typing_buddy`.
+
 ## How to use
 1. Paste your text into the top text box.
 2. Set your desired speed (WPM) and the countdown seconds.

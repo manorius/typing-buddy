@@ -3,8 +3,15 @@ import time
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-from .preferences import load_preferences, save_preferences
-from .simulator import TypingSimulator, make_system_sender
+try:
+    from .preferences import load_preferences, save_preferences
+    from .simulator import TypingSimulator, make_system_sender
+except ImportError:
+    # Allow running as a script: python typing_buddy/main.py
+    import os, sys
+    sys.path.append(os.path.dirname(__file__))
+    from preferences import load_preferences, save_preferences  # type: ignore
+    from simulator import TypingSimulator, make_system_sender  # type: ignore
 
 APP_TITLE = "Typing Buddy"
 
